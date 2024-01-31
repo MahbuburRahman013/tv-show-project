@@ -1,22 +1,21 @@
+import axios from 'axios';
 import { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom'
-import useGetShowData from '../api/useGetShowData';
 import TicketForm from './TicketForm';
 
 const Summery = () => {
     const paramId = useParams();
-    const [allShow, isLoading] = useGetShowData();
-    const [show, setShow] = useState({})
+    const [show, setShow] = useState({});  
 
     useEffect(() => {
 
-        return () => {
-            if (!isLoading) {
-                const IdData = allShow.find(data => data.show.id == paramId?.id)
-                setShow(IdData)
-            }
-        }
-    }, [allShow, paramId])
+        axios.get('https://api.tvmaze.com/search/shows?q=all')
+        .then(data=> {
+            const IdData = data?.data.find(data => data.show.id == paramId?.id)
+            setShow(IdData)
+        })
+                 
+    }, [])
 
 
     return (
