@@ -11,7 +11,7 @@ const Summery = () => {
 
         axios.get('https://api.tvmaze.com/search/shows?q=all')
         .then(data=> {
-            const IdData = data?.data.find(data => data.show.id == paramId?.id)
+            const IdData = data?.data.find(data => `id${data.show.id}id` == paramId?.id)
             setShow(IdData)
         })
                  

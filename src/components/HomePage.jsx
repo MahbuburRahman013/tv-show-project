@@ -29,7 +29,7 @@ const HomePage = () => {
                                 <div className="flex px-2 pb-3 items-center justify-between">
                                 <h1 className="text-base font-semibold ">Type: {sh?.show?.type}</h1>
                                 <button className="bg-blue-600 text-gray-100 rounded hover:bg-blue-800 px-3">
-                                      <Link to={`/${sh?.show?.id}`}>summary</Link>
+                                      <Link to={`/id${sh?.show?.id}id`}>summary</Link>
                                 </button>
                                 </div>
                             </div>
